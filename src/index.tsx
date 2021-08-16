@@ -1,14 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { createStore } from "./stores/helpers/create-store";
+import { StoreProvider } from "./stores/helpers/store-context";
+const rootStore = createStore();
+// create 4 users
+rootStore.dataStores.usersStore.addUser("Georgy");
+rootStore.dataStores.usersStore.addUser("Student 1");
+rootStore.dataStores.usersStore.addUser("Student 2");
+rootStore.dataStores.usersStore.addUser("Student 3");
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <StoreProvider value={rootStore}>
+      <App />
+    </StoreProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
