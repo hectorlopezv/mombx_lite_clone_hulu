@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#06202A] text-gray-300;
+  }
+}
+
+@layer components {
+   {
+    /*
+  .btn-blue {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+  */
+  }
+}
+ {
+  /*Tailwind will automatically generate prefixed versions of each custom utility that you can use to conditionally apply those styles at different breakpoints*/
+}
+ {
+  /* example md:scroll-snap-x"*/
+}
+
+ {
+  /*
+@layer utilities {
+  @variants responsive {
+    .scroll-snap-none {
+      scroll-snap-type: none;
+    }
+    .scroll-snap-x {
+      scroll-snap-type: x;
+    }
+    .scroll-snap-y {
+      scroll-snap-type: y;
+    }
+  }
+}
+*/
+}
+ {
+  /*example_2*/
+}
+ {
+  /*}
+.foo {
+  color: blue !important;
+}
+
+.bar {
+  @apply foo;
+}
+*/
+}
