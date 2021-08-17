@@ -9,13 +9,15 @@ const NavItem: React.FC<NavItemProps> = ({ requestOptions }) => {
     <>
       {requestOptions?.map((item: any) => {
         const [key, { title, url }] = item;
+        console.log("key", key);
+        console.log("url", url);
         return (
           <h2
             onClick={() =>
               history.push({
                 pathname: "/",
                 search: `?genre=${key}`,
-                state: { url: url },
+                //state: { url: url },
               })
             }
             key={key}
