@@ -5,36 +5,49 @@ import Results from "../../components/Results";
 import useQuery from "../../hooks/useQuery";
 import request from "../../utils/request";
 import { useEffect, useState } from "react";
+import { observer } from "mobx-react-lite";
+import { useStores } from "../../stores/helpers/use-stores";
 export interface HomeProps {}
 
 const Home: React.FC<HomeProps> = () => {
-  let query = useQuery();
-  const [resultsData, setresultsData] = useState<any>(null);
-  const genre: string = query.get("genre") || "";
+  //react router implementation
+  //const query = useQuery();
+  //const genre: string = query.get("genre") || "";
+
+  //mobx implementation
+  const {
+    dataStores: { movieStore },
+    uiStores: { globalView },
+  } = useStores();
+  // const [resultsData, setresultsData] = useState<any>(null);
+
   //depending on the location.state whe fetch something
   const baseUrl = "https://api.themoviedb.org/3";
   const endPoint = `${baseUrl}${
-    request[genre]?.url || request.fetchTrending.url
+    request[globalView.genre]?.url || request.fetchTrending.url
   }`;
+
   useEffect(() => {
-    const fetchData = async () => {
-      const data = fetch(endPoint);
-      const response: any = (await data).json();
-      setresultsData(await response);
-    };
-    fetchData();
-    return () => {
-      //setresultsData(null);
-    };
+    //without mobx implementation
+    // const fetchData = async () => {
+    //   const data = fetch(endPoint);
+    //   const response: any = (await data).json();
+    //   setresultsData(await response);
+    // };
+    // fetchData();
+    //console.log("new Endpoint", endPoint);
+    movieStore.fetchMovies(endPoint);
   }, [endPoint]);
-  
+  //console.log("movieStore", movieStore);
+  //console.log("movieStore.obtainMovieList", movieStore.obtainMovieList[0]);
   return (
     <>
       <Header />
       <NavBar />
-      <Results resultsData={ resultsData ? resultsData.results : []} />
+      {/* <Results resultsData={resultsData ? resultsData.results : []} /> */}
+      <Results resultsData={movieStore.obtainMovieList ? movieStore.obtainMovieList : []} />
     </>
   );
 };
 
-export default Home;
+export default observer(Home);

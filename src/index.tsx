@@ -7,14 +7,8 @@ import reportWebVitals from "./reportWebVitals";
 import { createStore } from "./stores/helpers/create-store";
 import { StoreProvider } from "./stores/helpers/store-context";
 const rootStore = createStore();
-// create 4 users
-rootStore.dataStores.usersStore.addUser("Georgy");
-rootStore.dataStores.usersStore.addUser("Student 1");
-rootStore.dataStores.usersStore.addUser("Student 2");
-rootStore.dataStores.usersStore.addUser("Student 3");
-if (module.hot) {
-  module.hot.accept();
-}
+
+
 ReactDOM.render(
   <React.StrictMode>
     <StoreProvider value={rootStore}>

@@ -5,6 +5,7 @@ export interface ThumbailProps {
 }
 
 const Thumbail: React.FC<ThumbailProps> = ({ result }) => {
+  //console.log("resuslt", result);
   const baseUrl = "https://image.tmdb.org/t/p/original/";
   return (
     <div className="group cursor-pointer ml-2 mr-2 p-4   hover:z-50 transition duration-200 ease-in transform sm:hover:scale-105 flex-grow-0 3xl:max-w-xl">

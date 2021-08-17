@@ -1,17 +1,9 @@
-import { observer } from "mobx-react-lite";
-
-import { useStores } from "./stores/helpers/use-stores";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import IsUserRedirect, { ProtectedRoute } from "./utils/redirections/routes";
 import Home from "./pages/Home";
 import * as ROUTES from "./Routes";
 function App() {
-  const {
-    dataStores: { todoStore },
-  } = useStores();
-  console.log("dataStores", todoStore);
   return (
     <Router>
       <Switch>
@@ -49,4 +41,4 @@ function App() {
   );
 }
 
-export default observer(App);
+export default App;

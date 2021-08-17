@@ -1,13 +1,9 @@
-import TodoStore from "./todos/todo-store";
-import UsersStore from "./users/users-store";
 import RootStore from "../root-store";
-
+import MovieStore from "./movies/movie-store";
 export default class DataStore {
-    todoStore: TodoStore;
-    usersStore: UsersStore;
+  movieStore: MovieStore;
 
-    constructor(rootStore: RootStore) {
-        this.todoStore = new TodoStore(rootStore);
-        this.usersStore = new UsersStore(rootStore);
-    }
+  constructor(rootStore: RootStore) {
+    this.movieStore = new MovieStore(rootStore);
+  }
 }
