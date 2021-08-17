@@ -9,16 +9,21 @@ import {
   LightningBoltIcon,
   SearchIcon,
   UserIcon,
-} from "@heroicons/react/solid";
+} from "@heroicons/react/outline";
 export interface HeaderProps {}
 const Header: React.FC<HeaderProps> = () => {
   return (
-    <header className="">
-      <div>
-        <HeaderItem title="Home" Icon={HomeIcon} />
+    <header className="flex flex-col items-center m-5 justify-between sm:flex-row h-auto">
+      <div className="flex flex-grow items-center justify-center max-w-2xl">
+        <HeaderItem title="HOME" Icon={HomeIcon} />
+        <HeaderItem title="TRENDING" Icon={LightningBoltIcon} />
+        <HeaderItem title="VERIFIED" Icon={BadgeCheckIcon} />
+        <HeaderItem title="COLLECTIONS" Icon={CollectionIcon} />
+        <HeaderItem title="SEARCH" Icon={SearchIcon} />
+        <HeaderItem title="ACCOUNT" Icon={UserIcon} />
       </div>
-      <LazyLoad height={200} once>
-        <HuluIcon height={100} width={200} className={"object-contain"} />
+      <LazyLoad once>
+        <HuluIcon height={80} width={150} className={"object-contain sm:mb-10"} />
       </LazyLoad>
     </header>
   );
