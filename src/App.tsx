@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 
-import IsUserRedirect, { ProtectedRoute } from "./utils/redirections/routes";
+import IsUserRedirect from "./utils/redirections/routes";
 import Home from "./pages/Home";
 import * as ROUTES from "./Routes";
 function App() {

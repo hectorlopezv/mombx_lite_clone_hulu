@@ -10,16 +10,16 @@ const IsUserRedirect = ({ user, loggedInPath, children, ...props }: any) => {
     <Route
       {...props}
       render={() => {
-        console.log("dentro del user redirect", user);
+      // console.log("dentro del user redirect", user);
         //what to render if user is in store.. localstorage
         if (user === null || user.length === 2 || user.length === 0) {
-          console.log("bebe");
+         // console.log("bebe");
           return children; //render page or component ... user props
         }
 
         if (user) {
           //if user already logged redirect to Browse page
-          console.log("im here");
+    //      console.log("im here");
           return (
             <Redirect
               to={{

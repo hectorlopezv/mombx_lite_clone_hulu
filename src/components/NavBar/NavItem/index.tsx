@@ -13,7 +13,7 @@ const NavItem: React.FC<NavItemProps> = ({ requestOptions }) => {
   return (
     <>
       {requestOptions?.map((item: any) => {
-        const [key, { title, url }] = item;
+        const [key, { title }] = item;
         //console.log("key", key);
         //console.log("url", url);
         return (

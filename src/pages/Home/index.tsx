@@ -2,9 +2,8 @@ import React from "react";
 import Header from "../../components/Header";
 import NavBar from "../../components/NavBar";
 import Results from "../../components/Results";
-import useQuery from "../../hooks/useQuery";
 import request from "../../utils/request";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../stores/helpers/use-stores";
 export interface HomeProps {}
@@ -37,7 +36,7 @@ const Home: React.FC<HomeProps> = () => {
     // fetchData();
     //console.log("new Endpoint", endPoint);
     movieStore.fetchMovies(endPoint);
-  }, [endPoint]);
+  }, [endPoint, movieStore]);
   //console.log("movieStore", movieStore);
   //console.log("movieStore.obtainMovieList", movieStore.obtainMovieList[0]);
   return (

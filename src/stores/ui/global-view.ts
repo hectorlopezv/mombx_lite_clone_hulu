@@ -1,4 +1,4 @@
-import { action, autorun, computed, makeAutoObservable, observable } from "mobx";
+import {  makeAutoObservable } from "mobx";
 import RootStore from "../root-store";
 
 export enum Views {
